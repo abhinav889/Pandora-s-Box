@@ -22,6 +22,6 @@ It can be implemented for the Whole Country, like the way it was done for _BitCo
 ### Technologies Used
 * #### FRONTEND: HTML,CSS and JAVASCRIPT
 * #### BACKEND: Node.JS/PHP on Azure Backend
-* #### Version Control: Github
+* #### VERSION CONTROL: Github
 
 
