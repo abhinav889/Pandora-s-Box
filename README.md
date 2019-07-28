@@ -16,11 +16,12 @@ It can be implemented for the Whole Country, like the way it was done for _BitCo
 * Reduce Government Funds that were for allocating Voting Booths in _Sparsely Populated_ areas.
 * Help _Disabled_, _Old_ and the _Sick_ to vote conveniently from their Premises.
 * Would reduce any speculations of the _Votes_ being compromised as _BLOCKCHAIN TECHNOLOGY_ is highly secure.
-* Would make it safer for people to vote in _Naxal Affected Areas_ during Elections.  
+* Would make it safer for people to vote in _Naxal, Maoist , Separatist and Terror Affected Areas_ during Elections.  
 
 
 ### Technologies Used
 * #### FRONTEND: HTML,CSS and JAVASCRIPT
-* #### BACKEND: Node.JS or PHP
+* #### BACKEND: Node.JS/PHP on Azure Backend
+* #### Version Control: Github
 
 
