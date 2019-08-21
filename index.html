@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vote</title>
+	<link rel="stylesheet" type="text/css" href="vote.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="leftContainer">
+            <h1 id="WelcomeMessage"></h1>
+            <button id="SignIn" class="butt1" onclick="signIn()">SignIn</button>
+        </div>
+        <div class="rightContainer">
+            <pre id="json"></pre>
+        </div>
+    </div>
+	<div class="master">
+		<h1 id="head1">Pick your candidate</h1>
+		<div class="table">
+			<table>
+				<tr>
+					<th>Party</th>
+					<th>Candidate</th>
+					<th>Vote</th>
+				</tr>
+				<tr>
+					<td><img src="bjp.png" class="img1"></td>
+					<td><h3>Tejasvi Surya</h3></td>
+					<td><button class="butt1" onclick="submit(this.id)" id="0">Vote</button></td>
+					
+				</tr>
+				<tr>
+					<td><img src="cong.jpg" class="img1"></td>
+					<td><h3>Hariprasad</h3></td>
+					<td><button class="butt1" onclick="submit(this.id)" id="1">Vote</button></td>
+					
+				<tr>
+					<td><img src="jds.jpg" class="img1"></td>
+					<td><h3>Nikhil Kumaraswamy</h3></td>
+					<td><button class="butt1" onclick="submit(this.id)" id="2">Vote</button></td>
+					
+				</tr>
+				<tr>	
+					<td><h2>Independant</h2></td>
+					<td><h3>Prashanth HM</h3></td>
+					<td><button class="butt1" onclick="submit(this.id)" id="3">Vote</button></td>
+					
+				</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			</table>
+
+
+
+
+
+
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+
+
+</body>
+<script>
+function submit(id)
+{
+    v="NOTA"
+    if(id=='0')
+    {
+        v="BJP"
+    }
+    else if(id=='1')
+    {
+        v="INC"
+    }
+    else if(id=='2')
+    {
+        v="JDS"
+    }
+    else
+    {
+        v="Independent"
+    }
+    $.ajax({
+        type: "POST",
+        url: AjaxURL,
+        data: {vote: v},
+        success: function(result) {
+            alert("successfully voted "+result)
+        }
+    });
+}
+</script>
+</html>
