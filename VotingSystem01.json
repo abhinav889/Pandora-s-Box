@@ -1,0 +1,153 @@
+{
+  "ApplicationName": "VotingSystem01",
+  "DisplayName": "VoteAnywhere",
+  "Description": "Vote with Safety and Comfort",
+  "ApplicationRoles": [
+    {
+      "Name": "Voter",
+      "Description": "A person sending a Vote"
+    }
+	,
+	{
+	  "Name": "ElectionCommission",
+	  "Description": "Committee Validating the Vote"
+	}
+  ],
+  "Workflows": [
+    {
+      "Name": "VotingSystem",
+      "DisplayName": "Vote Validation",
+      "Description": "A simple workflow to Vote and Validating it.",
+      "Initiators": [ "Voter" ],
+      "StartState": "Vote",
+      "Properties": [
+        {
+          "Name": "State",
+          "DisplayName": "State",
+          "Description": "Holds the state of the contract.",
+          "Type": {
+            "Name": "state"
+          }
+        },
+        {
+          "Name": "Voter",
+          "DisplayName": "Voter",
+          "Description": "A person sending a Vote.",
+          "Type": {
+            "Name": "Voter"
+          }
+        }
+		,
+		{
+          "Name": "ElectionCommission",
+          "DisplayName": "ElectionCommission",
+          "Description": "Committte to Validate the Vote",
+          "Type": {
+            "Name": "ElectionCommission"
+          }
+        },
+        {
+          "Name": "Vote",
+          "DisplayName": "Vote",
+          "Description": "A Vote Token",
+          "Type": {
+            "Name": "string"
+          }
+        }
+		,
+		{
+          "Name": "Validation",
+          "DisplayName": "Validation",
+          "Description": "Validate Vote",
+          "Type": {
+            "Name": "string"
+          }
+        }
+      ],
+      "Constructor": {
+        "Parameters": [
+          {
+            "Name": "vote",
+            "Description": "...",
+            "DisplayName": "Vote",
+            "Type": {
+              "Name": "string"
+            }
+          }
+        ]
+      },
+      "Functions": [
+        {
+          "Name": "SendVote",
+          "DisplayName": "Vote",
+          "Description": "...",
+          "Parameters": [
+            {
+              "Name": "vote",
+              "Description": "...",
+              "DisplayName": "Voting Token",
+              "Type": {
+                "Name": "string"
+              }
+            }
+          ]
+        }
+		,
+		{
+          "Name": "ValidateVote",
+          "DisplayName": "ValidateVote",
+          "Description": "...",
+          "Parameters": [
+            {
+              "Name": "validation",
+              "Description": "...",
+              "DisplayName": "Validation of Vote",
+              "Type": {
+                "Name": "string"
+              }
+            }
+          ]
+        }
+      ],
+      "States": [
+        {
+          "Name": "Vote",
+          "DisplayName": "Vote",
+          "Description": "...",
+          "PercentComplete": 50,
+          "Value": 0,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": ["ElectionCommission"],
+              "AllowedInstanceRoles": [],
+              "Description": "...",
+              "Function": "ValidateVote",
+              "NextStates": [ "Validate" ],
+              "DisplayName": "Send Vote"
+            }
+          ]
+        }
+		,
+		{
+          "Name": "Validate",
+          "DisplayName": "Validate",
+          "Description": "...",
+          "PercentComplete": 90,
+          "Value": 0,
+          "Style": "Success",
+          "Transitions": [
+            {
+              "AllowedRoles": [],
+              "AllowedInstanceRoles": ["Voter"],
+              "Description": "...",
+              "Function": "SendVote",
+              "NextStates": ["Vote"],
+              "DisplayName": "Validate Vote"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
